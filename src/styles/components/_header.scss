@@ -1,0 +1,70 @@
+@use '../helpers/index' as *;
+
+.background-header {
+    background: #253a3a;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+
+    .logo {
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 35px;
+        }
+    }
+
+    .header-links {
+        .header-links-list {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+
+            li {
+                margin: auto 0 auto;
+
+                a {
+                    text-decoration: none;
+                    list-style: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.header-links-list-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    background: #346565;
+    padding: 7px;
+    border-radius: 7px;
+    margin-right: rem(10);
+
+    //&:last-child {
+    //    margin-right: rem(0);
+    //}
+
+    img {
+        width: 27px;
+        margin-right: rem(5);
+    }
+
+    svg {
+        fill: none;
+        margin-right: rem(5);
+    }
+}
+
+.header-links-list-link.active {
+    border-bottom: 3px solid #DC7000;
+}

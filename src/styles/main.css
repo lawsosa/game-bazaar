@@ -1,0 +1,437 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+[fill] {
+  fill: currentColor;
+}
+
+[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+:root {
+  --color-light: #FFFFFF;
+  --color-input-background: #F1F1F1;
+  --color-hr-gray: lightgray;
+  --color-dark: #141414;
+  --color-dark-10: #1A1A1A;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-40: #666666;
+  --color-placeholder: #9ca3af;
+  --color-accent: #027bff;
+  --transition-duration: 0.2s;
+  --container-width: 84.375rem;
+}
+@media (width <= 90.06125rem) {
+  :root {
+    --container-width: 62.5rem;
+  }
+}
+
+.container {
+  width: var(--container-width);
+  margin-inline: auto;
+}
+
+@media (width <= 47.99875rem) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (width > 47.99875rem) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background: darkslategray;
+}
+
+.wrapper {
+  background: darkslategray;
+}
+
+a {
+  color: inherit;
+}
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--color-accent);
+  }
+}
+@media (any-hover: none) {
+  a:active {
+    color: var(--color-accent);
+  }
+}
+a[class] {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 0.125rem dashed var(--color-light);
+  outline-offset: 0.25rem;
+  transition-duration: 0s !important;
+}
+
+a[aria-label],
+button[aria-label] {
+  position: relative;
+}
+
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("/public/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+.steam-balance {
+  margin-top: 3.125rem;
+  background: #253a3a;
+  color: #FFFFFF;
+  padding: 3.125rem;
+  border-radius: 2.1875rem;
+}
+.steam-balance .steam-balance__replenishment {
+  display: flex;
+  font-size: 1.5625rem;
+  align-items: center;
+  margin-bottom: 2.1875rem;
+}
+.steam-balance .steam-balance__replenishment__img {
+  width: 3.75rem;
+  margin-right: 0.3125rem;
+}
+.steam-balance .steam-balance__blocks {
+  display: flex;
+  justify-content: space-between;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__login {
+  position: relative;
+  width: 25rem;
+  height: 13.125rem;
+  padding: 1.25rem;
+  background: rgb(52, 101, 101);
+  background: linear-gradient(115deg, rgb(52, 101, 101) 26%, rgb(20, 75, 118) 55%, rgb(38, 36, 171) 88%);
+  border-radius: 0.9375rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__login .steam-balance__block__img {
+  position: absolute;
+  right: 0.9375rem;
+  bottom: 0.9375rem;
+  width: 6.25rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__skins {
+  position: relative;
+  width: 25rem;
+  height: 13.125rem;
+  padding: 1.25rem;
+  background: rgb(52, 101, 101);
+  background: linear-gradient(115deg, rgb(52, 101, 101) 32%, rgb(133, 43, 128) 62%, rgb(197, 42, 188) 88%);
+  border-radius: 0.9375rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__skins .steam-balance__block__description {
+  width: 100%;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__skins .steam-balance__block__img {
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  width: 12.5rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__gift-cards {
+  position: relative;
+  width: 25rem;
+  height: 13.125rem;
+  padding: 1.25rem;
+  background: rgb(52, 101, 101);
+  background: linear-gradient(115deg, rgb(52, 101, 101) 26%, rgb(44, 108, 143) 57%, rgb(55, 194, 223) 88%);
+  border-radius: 0.9375rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__gift-cards .steam-balance__block__description {
+  width: 9.375rem;
+}
+.steam-balance .steam-balance__blocks .steam-balance__block__gift-cards .steam-balance__block__img {
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  width: 9.375rem;
+}
+
+.game .game__quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 3.125rem;
+  width: 100%;
+  height: 100%;
+}
+.game .game__quantity .game__quantity__title {
+  color: #FFFFFF;
+  font-size: 1.875rem;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+.game .game__quantity .game__quantity__title svg {
+  fill: none;
+  margin-right: 0.5rem;
+}
+.game .game__quantity .game__quantity__value {
+  font-size: 1.875rem;
+}
+
+.background-header {
+  background: #253a3a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.header .logo a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 35px;
+}
+.header .header-links .header-links-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.header .header-links .header-links-list li {
+  margin: auto 0 auto;
+}
+.header .header-links .header-links-list li a {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+.header-links-list-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  background: #346565;
+  padding: 7px;
+  border-radius: 7px;
+  margin-right: 0.625rem;
+}
+.header-links-list-link img {
+  width: 27px;
+  margin-right: 0.3125rem;
+}
+.header-links-list-link svg {
+  fill: none;
+  margin-right: 0.3125rem;
+}
+
+.header-links-list-link.active {
+  border-bottom: 3px solid #DC7000;
+}
+
+/*# sourceMappingURL=main.css.map */
