@@ -1,4 +1,11 @@
-import {Gamepad2} from "lucide-react";
+import NavSection from "../components/NavSection.jsx";
+import GiftsGame from "../components/GiftsGame.jsx";
+
+// const slides = [
+//     {
+//
+//     },
+// ]
 
 export default function Home() {
 
@@ -31,10 +38,12 @@ export default function Home() {
             </div>
 
             <div className="game">
-                <div className="game__quantity">
-                    <h1 className="game__quantity__title"><Gamepad2 size={35}/> Игры </h1>
-                    <p className='game__quantity__value' style={{color: '#ababab'}}>52000+</p>
-                </div>
+                {/*<div className="game__quantity">*/}
+                {/*    <h1 className="game__quantity__title"><Gamepad2 size={35}/> Игры </h1>*/}
+                {/*    <p className='game__quantity__value' style={{color: '#ababab'}}>52000+</p>*/}
+                {/*</div>*/}
+                <NavSection/>
+                <GiftsGame />
             </div>
         </>
     )

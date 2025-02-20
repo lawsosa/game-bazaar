@@ -1,0 +1,12 @@
+@use '../helpers/index' as *;
+
+.slide__game-content {
+
+    .slide__game-content__item {
+
+        .slide__game-content__item__img {
+            width: rem(250);
+            height: rem(250);
+        }
+    }
+}
