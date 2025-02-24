@@ -1,21 +1,51 @@
 @use '../helpers/index' as *;
 
 .slide {
-
     background: #253a3a;
     margin-top: rem(50);
     padding: rem(40);
     border-radius: rem(35);
-    display: flex;
     color: #FFFFFF;
+}
 
-    &__game-swiper__item {
-        &__img {
-            width: rem(200);
-            height: rem(250);
+.slide__game-swiper__item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: rem(300);
+
+    &__img {
+        width: rem(270);
+        height: rem(370);
+        border-radius: rem(25);
+    }
+
+    &__title {
+        text-align: center;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__price-block {
+
+        &__value--discount {
+            margin-right: rem(10);
+        }
+
+        &__value--original {
+            font-size: rem(13);
+            color: #9ca3af;
+            text-decoration: line-through;
         }
     }
 }
+
+//.swiper-slide {
+//    width: auto !important;  // Переопределяем ширину слайда
+//}
 
 .swiper-buttons {
     margin-bottom: rem(50);

@@ -1,5 +1,5 @@
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
+import {Navigation} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,7 +21,7 @@ const defaultSlides = [
     {
         id: 1,
         title: "DayZ",
-        discountPrice: "1500 ₽",
+        discountPrice: "150 ₽",
         originalPrice: "2553 ₽",
         rating: "★★★★★",
         img: "dayZ-background2.webp",
@@ -68,40 +68,42 @@ const defaultSlides = [
     },
 ];
 
-export default function GiftsGame({ slides = defaultSlides }) {
+export default function GiftsGame({slides = defaultSlides}) {
     return (
         <>
-            <NavSection/>
-            <Swiper
-                modules={[Navigation]}
-                spaceBetween={30}
-                slidesPerView={3}
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 5000 }}
-            >
-                {slides.map((slide) => (
-                    <SwiperSlide key={slide.id}>
-                        <div className="slide__game-swiper__item">
-                            <img
-                                className="slide__game-swiper__item__img"
-                                src={`/img/${slide.img}`}
-                                alt=""
-                            />
-                            <h3 className="slide__game-swiper__item__title">{slide.title}</h3>
-                            <div className="slide__game-swiper__item__price-block">
+            <div className="slide">
+                <NavSection/>
+                <Swiper
+                    modules={[Navigation]}
+                    spaceBetween={30}
+                    slidesPerView={4}
+                    pagination={{clickable: true}}
+                    autoplay={{delay: 5000}}
+                >
+                    {slides.map((slide) => (
+                        <SwiperSlide key={slide.id}>
+                            <div className="slide__game-swiper__item">
+                                <img
+                                    className="slide__game-swiper__item__img"
+                                    src={`/img/${slide.img}`}
+                                    alt=""
+                                />
+                                <h3 className="slide__game-swiper__item__title">{slide.title}</h3>
+                                <div className="slide__game-swiper__item__price-block">
                                 <span className="slide__game-swiper__item__price-block__value--discount">
                                     {slide.discountPrice}
                                 </span>
-                                <span className="slide__game-swiper__item__price-block__value--original">
+                                    <span className="slide__game-swiper__item__price-block__value--original">
                                     {slide.originalPrice}
                                 </span>
+                                </div>
+                                <div className="slide__game-swiper__item--rating">{slide.rating}</div>
                             </div>
-                            <div className="slide__game-swiper__item--rating">{slide.rating}</div>
-                        </div>
-                    </SwiperSlide>
-                ))}
-                <SwiperButtons />
-            </Swiper>
+                        </SwiperSlide>
+                    ))}
+                    <SwiperButtons/>
+                </Swiper>
+            </div>
         </>
     );
 }
