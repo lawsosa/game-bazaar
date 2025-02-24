@@ -1,12 +1,22 @@
 @use '../helpers/index' as *;
 
-.slide__game-content {
+.slide {
 
-    .slide__game-content__item {
+    background: #253a3a;
+    margin-top: rem(50);
+    padding: rem(40);
+    border-radius: rem(35);
+    display: flex;
+    color: #FFFFFF;
 
-        .slide__game-content__item__img {
-            width: rem(250);
+    &__game-swiper__item {
+        &__img {
+            width: rem(200);
             height: rem(250);
         }
     }
+}
+
+.swiper-buttons {
+    margin-bottom: rem(50);
 }

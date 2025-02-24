@@ -1,4 +1,3 @@
-import NavSection from "../components/NavSection.jsx";
 import GiftsGame from "../components/GiftsGame.jsx";
 
 // const slides = [
@@ -24,7 +23,7 @@ export default function Home() {
                     </div>
                     <div className="steam-balance__block__skins">
                         <h2 className="steam-balance__block__title">Скинами</h2>
-                        <p className="steam-balance__block__description">Комиссия 0%</p>
+                        <p className="steam-balance__block__description">Комиссия 5%</p>
                         <img className='steam-balance__block__img' src="/public/img/768-ImageSkins.DRRLRw3w.webp"
                              alt=""/>
                     </div>
@@ -38,12 +37,8 @@ export default function Home() {
             </div>
 
             <div className="game">
-                {/*<div className="game__quantity">*/}
-                {/*    <h1 className="game__quantity__title"><Gamepad2 size={35}/> Игры </h1>*/}
-                {/*    <p className='game__quantity__value' style={{color: '#ababab'}}>52000+</p>*/}
-                {/*</div>*/}
-                <NavSection/>
-                <GiftsGame />
+
+                <GiftsGame/>
             </div>
         </>
     )
