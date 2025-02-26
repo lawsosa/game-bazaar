@@ -1,24 +1,13 @@
-import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
-import Button from "./ui/Button.jsx";
-import {MoveLeft, MoveRight} from "lucide-react";
-import NavSection from "./NavSection.jsx";
+import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
-import {useState} from "react";
+import SwiperButtons from "./SwiperButtons.jsx";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export const SwiperButtons = () => {
-    const swiper = useSwiper();
-    return (
-        <div className="swiper-buttons">
-            <Button className="swiper-button" onClick={() => swiper.slidePrev()}><MoveLeft/></Button>
-            <Button className="swiper-button" onClick={() => swiper.slideNext()}><MoveRight/></Button>
-        </div>
-    );
-};
 
 const defaultSlides = [
     {
@@ -72,6 +61,7 @@ const defaultSlides = [
 ];
 
 export default function GiftsSlider({slides = defaultSlides}) {
+    const shouldShowButtons = slides.length > 4;
     return (
         <>
             <main>
@@ -105,9 +95,8 @@ export default function GiftsSlider({slides = defaultSlides}) {
                                 </div>
                             </SwiperSlide>
                         </>
-
                     ))}
-                    <SwiperButtons/>
+                    {shouldShowButtons && <SwiperButtons/>}
                 </Swiper>
             </main>
         </>

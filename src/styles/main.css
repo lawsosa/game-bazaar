@@ -358,27 +358,41 @@ button[aria-label] {
   width: 9.375rem;
 }
 
-.game .game__quantity {
+.game__quantity {
   display: flex;
   align-items: center;
   margin-bottom: 1.5625rem;
   width: 100%;
   height: 100%;
 }
-.game .game__quantity .game__quantity__title {
+.game__quantity__title {
   color: #FFFFFF;
   font-size: 1.875rem;
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
 }
-.game .game__quantity .game__quantity__title svg {
+.game__quantity__title svg {
   fill: none;
   margin-right: 0.5rem;
 }
-.game .game__quantity .game__quantity__value {
+.game__quantity__value {
   font-size: 1.875rem;
   font-weight: 700;
+}
+.game__quantity__gifts-keys {
+  display: flex;
+  gap: 0.625rem;
+  margin-left: 3.125rem;
+}
+.game__quantity__gifts-keys__button {
+  padding: 0.3125rem 0.9375rem;
+  background: #346565;
+  border: none;
+  border-radius: 0.625rem;
+}
+.game__quantity__gifts-keys__button:hover {
+  background: #439393;
 }
 
 .slide {
@@ -434,7 +448,7 @@ button[aria-label] {
 .swiper-buttons {
   display: flex;
   justify-content: center;
-  margin-top: 1.25rem;
+  margin-top: 2.1875rem;
   gap: 0.625rem;
 }
 .swiper-buttons .swiper-button {
@@ -443,7 +457,7 @@ button[aria-label] {
   background: #346565;
   border: none;
   border-radius: 0.625rem;
-  padding: 0.4375rem 0.625rem;
+  padding: 0.4375rem 0.9375rem;
 }
 .swiper-buttons .swiper-button:hover {
   background: #439393;

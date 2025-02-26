@@ -63,7 +63,7 @@
 .swiper-buttons {
     display: flex;
     justify-content: center;
-    margin-top: rem(20);
+    margin-top: rem(35);
     gap: rem(10);
 
     .swiper-button {
@@ -72,7 +72,7 @@
         background: #346565;
         border: none;
         border-radius: rem(10);
-        padding: rem(7) rem(10);
+        padding: rem(7) rem(15);
 
         &:hover {
             background: #439393;

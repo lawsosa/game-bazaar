@@ -5,7 +5,7 @@ import KeysSlider from "./KeysSlider.jsx";
 
 
 export default function GiftsGame() {
-    const [tab, setTab] = useState('gift');
+    const [tab, setTab] = useState('key');
     return (
         <>
             <div className="slide">
