@@ -1,4 +1,5 @@
 import GiftsGame from "../components/GiftsGame.jsx";
+import DigitalGoodsStore from "../components/DigitalGoodsStore.jsx";
 
 // const slides = [
 //     {
@@ -36,10 +37,9 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="game">
+            <GiftsGame className="game"/>
 
-                <GiftsGame/>
-            </div>
+            <DigitalGoodsStore className="game" />
         </>
     )
 }

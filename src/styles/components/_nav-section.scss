@@ -16,6 +16,10 @@
             align-items: center;
             margin-right: rem(8);
 
+            &__svg {
+                margin-left: rem(13);
+            }
+
             svg {
                 fill: none;
                 margin-right: rem(8);
@@ -30,17 +34,18 @@
 
         &__gifts-keys {
             display: flex;
-            gap: rem(10);
             margin-left: rem(50);
+            border: 1px solid #346565;
+            border-radius: rem(5);
 
             &__button {
-                padding: rem(5) rem(15);
-                background: #346565;
+                padding: rem(8) rem(40);
+                background: #253636;
                 border: none;
-                border-radius: rem(10);
+                border-radius: rem(5);
 
-                &:hover {
-                    background: #439393;
+                &--active {
+                    background: #346565;
                 }
             }
         }

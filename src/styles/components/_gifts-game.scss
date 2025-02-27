@@ -63,16 +63,37 @@
 .swiper-buttons {
     display: flex;
     justify-content: center;
-    margin-top: rem(35);
     gap: rem(10);
 
-    .swiper-button {
+    &-container {
         display: flex;
+        margin-left: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: relative;
+        top: 0;
+        margin-top: 0;
+        width: rem(40);
+        height: rem(40);
+        display: flex;
+        right: 0;
+        left: 0;
         align-items: center;
+        color: #FFFFFF;
         background: #346565;
         border: none;
-        border-radius: rem(10);
-        padding: rem(7) rem(15);
+        border-radius: 100%;
+
+        &::after {
+            display: none;
+        }
+
+        svg {
+            fill: none;
+            height: rem(24);
+        }
 
         &:hover {
             background: #439393;

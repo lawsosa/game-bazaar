@@ -1,8 +1,7 @@
-import SliderGame from "./SliderGame.jsx";
-import {useState} from "react";
-import NavSectionGame from "./NavSectionGame.jsx";
+import NavSectionDigital from "./NavSectionDigital.jsx";
+import SliderDigital from "./SliderDigital.jsx";
 
-const giftSlides = [
+const digitalSlides = [
     {
         id: 1,
         title: "DayZ",
@@ -69,49 +68,15 @@ const giftSlides = [
     }
 ];
 
-const keySlides = [
-    {
-        id: 1,
-        title: "Dead by Daylight",
-        discountPrice: "80 ₽",
-        originalPrice: "199 ₽",
-        rating: "★★★★★",
-        img: "dbd-background.webp",
-    },
-    {
-        id: 2,
-        title: "GTAV",
-        discountPrice: "20 ₽",
-        originalPrice: "1499 ₽",
-        rating: "★★★★★",
-        img: "gtaV-background.webp",
-    },
-    {
-        id: 3,
-        title: "Mafia II",
-        discountPrice: "1300 ₽",
-        originalPrice: "3239 ₽",
-        rating: "★★★★☆",
-        img: "mafia-II-background.webp",
-    },
-    {
-        id: 4,
-        title: "Watch Dogs 2",
-        discountPrice: "1200 ₽",
-        originalPrice: "3500 ₽",
-        rating: "★★★★★",
-        img: "watch-dogs-2-background.webp",
-    },
-];
 
-export default function GiftsGame() {
-    const [tab, setTab] = useState('gift');
-
+export default function DigitalGoodsStore() {
     return (
-        <div className="slide">
-            <NavSectionGame active={tab} onChange={(current) => setTab(current)}
-                            showSwiperButtons={(tab === "gift" ? giftSlides : keySlides).length > 4}/>
-            <SliderGame key={tab} slides={tab === 'gift' ? giftSlides : keySlides}/>
-        </div>
-    );
+        <>
+            <div className="slide">
+                <NavSectionDigital/>
+
+                <SliderDigital slides={digitalSlides} />
+            </div>
+        </>
+    )
 }
